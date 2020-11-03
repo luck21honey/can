@@ -15,6 +15,7 @@
           Sign Up
         </h2>
       </div>
+      
       <div class="mt-8 bg-white p-8 rounded-md shadow-md">
         <form action="#" method="POST" class="space-y-6">
           <div>
@@ -148,7 +149,7 @@
           <div class="block text-sm font-medium leading-5 text-gray-700">
             Already have an account?
             <nuxt-link
-              class="no-underline border-b border-blue text-blue"
+              class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
               to="/"
             >
               Sign in
