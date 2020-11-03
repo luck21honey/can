@@ -1,24 +1,32 @@
 <template>
-  <div
-    class="min-h-screen flex items-center justify-center bg-gray-200 py-12 px-4 sm:px-6 lg:px-8"
-  >
-    <div class="max-w-md w-full">
-      <div>
-        <img
-          class="mx-auto h-12 w-auto"
-          src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
-          alt="Workflow"
-        />
-        <h2
-          class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900"
-        >
-          Sign Up
-        </h2>
-      </div>
-      
-      <div class="mt-8 bg-white p-8 rounded-md shadow-md">
-        <form action="#" method="POST" class="space-y-6">
-          <div>
+  <div class="min-h-screen bg-white flex">
+    <div class="hidden lg:block relative w-0 flex-1">
+      <img
+        class="absolute inset-0 h-full w-full object-cover"
+        src="https://kissflow.com/wp-content/uploads/2017/11/Workflow-for-SaaS.png"
+        alt=""
+      />
+    </div>
+
+    <div
+      class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
+    >
+      <div class="mx-auto w-full max-w-sm lg:w-96">
+        <div class="px-8 mb-4 text-center">
+          <img
+            class="mx-auto h-12 w-auto"
+            src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg"
+            alt="Workflow"
+          />
+          <h2
+            class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900"
+          >
+            Sign Up
+          </h2>
+        </div>
+
+        <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+          <div class="mb-5">
             <label
               for="fullname"
               class="block text-sm font-medium leading-5 text-gray-700"
@@ -36,7 +44,7 @@
             </div>
           </div>
 
-          <div>
+          <div class="mb-5">
             <label
               for="email"
               class="block text-sm font-medium leading-5 text-gray-700"
@@ -54,7 +62,7 @@
             </div>
           </div>
 
-          <div>
+          <div class="mb-5">
             <label
               for="password"
               class="block text-sm font-medium leading-5 text-gray-700"
@@ -92,7 +100,7 @@
             </div>
           </div>
 
-          <div class="mt-1 grid grid-cols-3 gap-3">
+          <div class="mt-3 grid grid-cols-3 gap-3">
             <div>
               <span class="w-full inline-flex rounded-md shadow-sm">
                 <button
@@ -146,7 +154,7 @@
             </div>
           </div>
 
-          <div class="block text-sm font-medium leading-5 text-gray-700">
+          <div class="block mt-3 text-sm font-medium leading-5 text-gray-700">
             Already have an account?
             <nuxt-link
               class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
@@ -156,6 +164,7 @@
             </nuxt-link>
           </div>
         </form>
+
         <p class="text-center text-gray-500 text-xs mt-3">
           &copy;2020 Acme Corp. All rights reserved.
         </p>
