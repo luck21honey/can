@@ -1,7 +1,7 @@
 <template>
   <div class="flex-1 px-4 flex justify-between items-center">
     <div class="flex-1 flex">
-      <h1 class="text-2xl font-semibold text-gray-900">Home</h1>
+      <!-- <h1 class="text-2xl font-semibold text-gray-900">Home</h1> -->
     </div>
     <div class="ml-4 flex items-center md:ml-6">
       <button
