@@ -39,7 +39,7 @@
             />
           </button>
         </div>
-        
+
         <div
           class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
         >
@@ -63,11 +63,11 @@
               >Settings</a
             >
 
-            <a
-              href="#"
+            <nuxt-link
+              to="/"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150"
               role="menuitem"
-              >Sign out</a
+              >Sign out</nuxt-link
             >
           </div>
         </div>

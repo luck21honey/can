@@ -16,8 +16,8 @@
         
         <div class="mt-5 flex-1 flex flex-col">
           <nav class="flex-1 px-2 bg-indigo-800 space-y-1">
-            <a
-              href="#"
+            <nuxt-link
+              to="/home"
               class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-indigo-900 focus:outline-none focus:bg-indigo-700 transition ease-in-out duration-150"
             >
               <!-- Heroicon name: home -->
@@ -36,10 +36,10 @@
                 />
               </svg>
               Home
-            </a>
+            </nuxt-link>
 
-            <a
-              href="#"
+            <nuxt-link
+              to="/search"
               class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-indigo-300 rounded-md hover:text-white hover:bg-indigo-700 focus:outline-none focus:text-white focus:bg-indigo-700 transition ease-in-out duration-150"
             >
               <!-- Heroicon name: search -->
@@ -58,10 +58,10 @@
                 />
               </svg>
               Search
-            </a>
+            </nuxt-link>
 
-            <a
-              href="#"
+            <nuxt-link
+              to="/products"
               class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-indigo-300 rounded-md hover:text-white hover:bg-indigo-700 focus:outline-none focus:text-white focus:bg-indigo-700 transition ease-in-out duration-150"
             >
               <svg
@@ -79,10 +79,10 @@
                 />
               </svg>
               Products
-            </a>
+            </nuxt-link>
 
-            <a
-              href="#"
+            <nuxt-link
+              to="/terms"
               class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-indigo-300 rounded-md hover:text-white hover:bg-indigo-700 focus:outline-none focus:text-white focus:bg-indigo-700 transition ease-in-out duration-150"
             >
               <svg
@@ -100,7 +100,7 @@
                 />
               </svg>
               Terms & Conds
-            </a>
+            </nuxt-link>
           </nav>
         </div>
       </div>
