@@ -3,7 +3,7 @@
     <div class="hidden lg:block relative w-0 flex-1">
       <img
         class="absolute inset-0 h-full w-full object-cover"
-        src="https://kissflow.com/wp-content/uploads/2017/11/Workflow-for-SaaS.png"
+        src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
         alt=""
       />
     </div>
@@ -173,15 +173,3 @@
   </div>
 </template>
 
-<style scoped>
-.or-continue-with {
-  border-bottom: 1px solid lightgray;
-  line-height: 0.1em;
-  margin: 10px 0 20px;
-}
-
-.or-continue-with span {
-  background: #fff;
-  padding: 0 10px;
-}
-</style>
