@@ -1,7 +1,7 @@
 <template>
 <!-- Static sidebar for desktop -->
-<div class="hidden md:flex md:flex-shrink-0">
-    <div class="flex flex-col w-64">
+<div class="hidden md:flex md:flex-shrink-0  bg-indigo-800">
+    <div class="flex flex-col w-64" id="desktop_sidebar_section">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex flex-col flex-grow bg-indigo-800 pt-5 pb-4 overflow-y-auto">
             <div class="flex items-center flex-shrink-0 px-4">
@@ -45,3 +45,20 @@
     </div>
 </div>
 </template>
+
+<script>
+export default {
+    
+    mounted() {
+        document.addEventListener("mousemove", e => {
+            if (e.clientX < 320) {
+                document.getElementById("desktop_sidebar_section").style.width = "256px";
+                document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
+            } else {
+                document.getElementById("desktop_sidebar_section").style.width = "0";
+                document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
+            }
+        });
+    }
+}
+</script>
