@@ -145,16 +145,15 @@ export default {
                 password: this.password
             };
             this.$store
-            .dispatch('signInWithEmail', user)
-            .then(() => {
-                this.email = "";
-                this.password = "";
-                this.$router.push('/home');
-            })
-            .catch(err => {
-                alert(err.message)
-            })
-            console.log('signin clicked>>>', user);
+                .dispatch('signInWithEmail', user)
+                .then(() => {
+                    this.email = "";
+                    this.password = "";
+                    this.$router.push('/home');
+                })
+                .catch(err => {
+                    alert(err.message)
+                })
         }
     }
 }
