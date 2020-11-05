@@ -175,6 +175,18 @@ export default {
     data: () => ({
         profileOpen: false,
         sidebarOpen: false,
-    })
+    }),
+    mounted() {
+        // show/hide sidebar
+        document.addEventListener("mousemove", e => {
+            if (e.clientX < 320) {
+                document.getElementById("desktop_sidebar_section").style.width = "256px";
+                document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
+            } else {
+                document.getElementById("desktop_sidebar_section").style.width = "0";
+                document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
+            }
+        });
+    }
 }
 </script>
