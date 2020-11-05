@@ -151,7 +151,7 @@
 
                                     <nuxt-link to="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</nuxt-link>
 
-                                    <button @click="signOut" v-if="$store.state.user" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</button>
+                                    <button @click="signOut" v-if="$store.getters.user" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</button>
                                 </div>
                             </div>
                         </transition>
@@ -166,8 +166,6 @@
 </template>
 
 <script>
-import mapGetters from "vuex"
-
 export default {
     data: () => ({
         profileOpen: false,
@@ -184,11 +182,6 @@ export default {
                 document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
             }
         });
-    },
-    computed: {
-        ...mapGetters({
-            user: "user"
-        })
     },
     methods: {
         signOut: function(err) {
