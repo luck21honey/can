@@ -136,7 +136,7 @@ export default {
             .catch(err => {
                 alert(err.message)
             })
-            console.log('clicked>>>', user);
+            console.log('signup clicked>>>', user);
         }
     }
 }

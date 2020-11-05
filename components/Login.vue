@@ -68,13 +68,13 @@
                 </div>
 
                 <div class="mt-6">
-                    <form action="#" method="POST" class="space-y-6">
+                    <form class="space-y-6">
                         <div>
                             <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
                                 Email address
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input v-model="email" id="email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                         </div>
 
@@ -83,7 +83,7 @@
                                 Password
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input v-model="password" id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                         </div>
 
@@ -104,15 +104,12 @@
 
                         <div>
                             <span class="block w-full rounded-md shadow-sm">
-                                <!-- <button
-                    type="submit"
-                    class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
-                  >
-                    Sign in
-                  </button> -->
-                                <nuxt-link to="/home" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                <button @click.stop.prevent="handleSignIn" type="button" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                                     Sign in
-                                </nuxt-link>
+                                </button>
+                                <!-- <nuxt-link to="/home" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                    Sign in
+                                </nuxt-link> -->
                             </span>
                         </div>
                     </form>
@@ -132,3 +129,33 @@
 
 <style>
 </style>
+
+<script>
+export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+        };
+    },
+    methods: {
+        handleSignIn(err) {
+            var user = {
+                email: this.email,
+                password: this.password
+            };
+            this.$store
+            .dispatch('signInWithEmail', user)
+            .then(() => {
+                this.email = "";
+                this.password = "";
+                // this.$router.push('/home');
+            })
+            .catch(err => {
+                alert(err.message)
+            })
+            console.log('signin clicked>>>', user);
+        }
+    }
+}
+</script>>
