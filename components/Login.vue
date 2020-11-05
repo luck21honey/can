@@ -149,7 +149,7 @@ export default {
             .then(() => {
                 this.email = "";
                 this.password = "";
-                // this.$router.push('/home');
+                this.$router.push('/home');
             })
             .catch(err => {
                 alert(err.message)

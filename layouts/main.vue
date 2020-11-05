@@ -150,8 +150,10 @@
                                     <nuxt-link to="profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Your Profile</nuxt-link>
 
                                     <nuxt-link to="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</nuxt-link>
-
-                                    <button @click="signOut" v-if="$store.getters.user" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</button>
+                                    
+                                    <div @click="signOut" v-if="$store.getters.user" class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">
+                                        Sign out
+                                    </div>
                                 </div>
                             </div>
                         </transition>
@@ -184,8 +186,8 @@ export default {
         });
     },
     methods: {
-        signOut: function(err) {
-            this.$store.dispatch("signOut").catch(err=> {
+        signOut: function (err) {
+            this.$store.dispatch("signOut").catch(err => {
                 alert(err.message);
             });
         }
