@@ -119,12 +119,23 @@ export default {
         };
     },
     methods: {
-        handleSignup() {
+        handleSignup(err) {
             var user = {
                 fullname: this.fullname,
                 email: this.email,
                 password: this.password
             };
+            this.$store
+            .dispatch('signUp', user)
+            .then(() => {
+                this.fullname = "";
+                this.email = "";
+                this.password = "";
+                // this.$router.push('/home');
+            })
+            .catch(err => {
+                alert(err.message)
+            })
             console.log('clicked>>>', user);
         }
     }
