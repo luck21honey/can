@@ -111,7 +111,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
         <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow">
             <button @click="sidebarOpen = !sidebarOpen" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden" aria-label="Open sidebar">
@@ -174,7 +174,7 @@
 export default {
     data: () => ({
         profileOpen: false,
-        sidebarOpen: true,
+        sidebarOpen: false,
     })
 }
 </script>
