@@ -1,5 +1,5 @@
 <template>
-<div class="h-screen flex overflow-hidden bg-gray-100" x-data="{sidebarOpen: false}" @keydown.window.escape="sidebarOpen = false">
+<div class="h-screen flex overflow-hidden bg-gray-100" @keydown.window.escape="sidebarOpen = false">
     <MobileSidebar />
     <DesktopSidebar />
 
