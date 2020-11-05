@@ -13,51 +13,54 @@
                 </h2>
             </div>
 
-            <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-                <div class="mb-5">
-                    <label for="fullname" class="block text-sm font-medium leading-5 text-gray-700">
-                        Full Name
-                    </label>
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input id="fullname" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Jane Doe" />
+            <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                <form>
+                    <div class="mb-5">
+                        <label for="fullname" class="block text-sm font-medium leading-5 text-gray-700">
+                            Full Name
+                        </label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input v-model="fullname" id="fullname" type="text" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Jane Doe" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-5">
-                    <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
-                        Email address
-                    </label>
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input id="email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="user@abc.com" />
+                    <div class="mb-5">
+                        <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
+                            Email address
+                        </label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input v-model="email" id="email" type="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="user@abc.com" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-5">
-                    <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
-                        Password
-                    </label>
-                    <div class="mt-1 rounded-md shadow-sm">
-                        <input id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="********" />
+                    <div class="mb-5">
+                        <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
+                            Password
+                        </label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input v-model="password" id="password" type="password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="********" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="mt-6">
-                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                        Create Account
-                    </button>
-                </div>
-
-                <div class="mt-6 relative">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
+                    <div class="mt-6">
+                        <button @click.stop.prevent="handleSignup" type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                            Create Account
+                        </button>
                     </div>
-                    <div class="relative flex justify-center text-sm leading-5">
-                        <span class="px-2 bg-white text-gray-500">
-                            Or continue with
-                        </span>
-                    </div>
-                </div>
 
+                    <div class="mt-6 relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm leading-5">
+                            <span class="px-2 bg-white text-gray-500">
+                                Or continue with
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Social register -->
                 <div class="mt-3 grid grid-cols-3 gap-3">
                     <div>
                         <span class="w-full inline-flex rounded-md shadow-sm">
@@ -96,7 +99,7 @@
                         Sign in
                     </nuxt-link>
                 </div>
-            </form>
+            </div>
 
             <p class="text-center text-gray-500 text-xs mt-3">
                 &copy;2020 Acme Corp. All rights reserved.
@@ -105,3 +108,25 @@
     </div>
 </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            fullname: 'Jane Doe',
+            email: 'user@abc.com',
+            password: 'asdf1234',
+        };
+    },
+    methods: {
+        handleSignup() {
+            var user = {
+                fullname: this.fullname,
+                email: this.email,
+                password: this.password
+            };
+            console.log('clicked>>>', user);
+        }
+    }
+}
+</script>>
