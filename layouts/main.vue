@@ -1,10 +1,5 @@
 <template>
-<!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
 <div class="h-screen flex overflow-hidden bg-gray-100">
-    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
     <div class="md:hidden" v-show="sidebarOpen">
         <div class="fixed inset-0 flex z-40">
             <transition enter-active-class="transition-opacity ease-linear duration-300" enter-class="opacity-0" enter-to-class="opacity-100" leave-active-class="transition-opacity ease-linear duration-300" leave-class="opacity-100" leave-to-class="opacity-0">
@@ -156,7 +151,7 @@
 
                                     <nuxt-link to="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</nuxt-link>
 
-                                    <nuxt-link to="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</nuxt-link>
+                                    <button @click="signOut" v-if="$store.state.user" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</button>
                                 </div>
                             </div>
                         </transition>
@@ -171,6 +166,8 @@
 </template>
 
 <script>
+import mapGetters from "vuex"
+
 export default {
     data: () => ({
         profileOpen: false,
@@ -187,6 +184,18 @@ export default {
                 document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
             }
         });
+    },
+    computed: {
+        ...mapGetters({
+            user: "user"
+        })
+    },
+    methods: {
+        signOut: function(err) {
+            this.$store.dispatch("signOut").catch(err=> {
+                alert(err.message);
+            });
+        }
     }
 }
 </script>
