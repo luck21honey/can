@@ -150,7 +150,7 @@
                                     <nuxt-link to="profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Your Profile</nuxt-link>
 
                                     <nuxt-link to="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</nuxt-link>
-                                    
+
                                     <div @click="signOut" v-if="$store.getters.user" class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">
                                         Sign out
                                     </div>
@@ -173,6 +173,11 @@ export default {
         profileOpen: false,
         sidebarOpen: false,
     }),
+    beforeMount() {
+        if (!$store.getters.isAuthenticated) {
+            this.$route.push('/');
+        }
+    },
     mounted() {
         // show/hide sidebar
         document.addEventListener("mousemove", e => {
@@ -187,9 +192,14 @@ export default {
     },
     methods: {
         signOut: function (err) {
-            this.$store.dispatch("signOut").catch(err => {
-                alert(err.message);
-            });
+            this.$store
+                .dispatch("signOut")
+                .then(() => {
+                    this.$route.push('/');
+                })
+                .catch(err => {
+                    alert(err.message);
+                });
         }
     }
 }
