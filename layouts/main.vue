@@ -151,7 +151,7 @@
 
                                     <nuxt-link to="settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</nuxt-link>
 
-                                    <div @click="signOut" v-if="$store.getters.user" class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">
+                                    <div @click="signOut" class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">
                                         Sign out
                                     </div>
                                 </div>
@@ -169,33 +169,38 @@
 
 <script>
 export default {
-    data: () => ({
-        profileOpen: false,
-        sidebarOpen: false,
-    }),
-    beforeMount() {
-        if (!$store.getters.isAuthenticated) {
-            this.$route.push('/');
+
+    data() {
+        const isAuthenticated = this.$store.getters.isAuthenticated;
+        if (!isAuthenticated) {
+            this.$router.push('/');
+        }
+        return {
+            profileOpen: false,
+            sidebarOpen: false,
         }
     },
     mounted() {
         // show/hide sidebar
-        document.addEventListener("mousemove", e => {
-            if (e.clientX < 320) {
-                document.getElementById("desktop_sidebar_section").style.width = "256px";
-                document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
-            } else {
-                document.getElementById("desktop_sidebar_section").style.width = "0";
-                document.getElementById("desktop_sidebar_section").style.transition = "0.2s";
-            }
-        });
+        const desktopSidebarSection = document.getElementById("desktop_sidebar_section");
+        if (desktopSidebarSection) {
+            document.addEventListener("mousemove", e => {
+                if (e.clientX < 320) {
+                    desktopSidebarSection.style.width = "256px";
+                    desktopSidebarSection.style.transition = "0.2s";
+                } else {
+                    desktopSidebarSection.style.width = "0";
+                    desktopSidebarSection.style.transition = "0.2s";
+                }
+            });
+        }
     },
     methods: {
         signOut: function (err) {
             this.$store
                 .dispatch("signOut")
                 .then(() => {
-                    this.$route.push('/');
+                    this.$router.push('/');
                 })
                 .catch(err => {
                     alert(err.message);

@@ -96,9 +96,9 @@
                             </div>
 
                             <div class="text-sm leading-5">
-                                <a href="/forgot-password" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                                <nuxt-link to="/forgot-password" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                                     Forgot your password?
-                                </a>
+                                </nuxt-link>
                             </div>
                         </div>
 
