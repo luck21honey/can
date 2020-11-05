@@ -7,7 +7,7 @@
 <script>
 export default {
     mounted() {
-        if ($store.getters.isAuthenticated) {
+        if (this.$store.getters.isAuthenticated) {
             this.$router.push('/home');
         }
     }
