@@ -5,7 +5,7 @@
 -->
 <div class="bg-gray-50">
     <div class="max-w-screen-xl mx-auto py-3 px-4 sm:py-6 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
+        <div class="mx-auto">
             <div class="text-left leading-9 text-gray-900 sm:text-4xl sm:leading-10">
                 Search Results: 6
             </div>

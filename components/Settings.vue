@@ -1,6 +1,6 @@
 <template>
 <main class="flex-1 bg-gray-50 overflow-y-auto focus:outline-none" tabindex="0">
-    <div class="relative max-w-4xl mx-auto md:px-8 xl:px-0">
+    <div class="relative mx-auto md:px-8 xl:px-0">
         <div class="px-4 sm:px-6 md:px-0">
             <div class="py-6">
                 <!-- Tabs -->
