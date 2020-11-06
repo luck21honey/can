@@ -6,10 +6,12 @@
 
 <script>
 export default {
-    mounted() {
-        if (this.$store.getters.isAuthenticated) {
+    data() {
+        const isAuthenticated = this.$store.getters.isAuthenticated;
+        if (isAuthenticated) {
             this.$router.push('/home');
         }
-    }
+        return {}
+    },
 }
 </script>>
