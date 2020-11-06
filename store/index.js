@@ -1,7 +1,7 @@
 // ~/store/index.js
 
 import Vuex from 'vuex'
-import { auth } from '~/plugins/firebase.js'
+import { auth, googleAuth } from '~/plugins/firebase.js'
 
 const createStore = () => {
     return new Vuex.Store({
@@ -32,6 +32,10 @@ const createStore = () => {
 
             signInWithEmail({ commit }, { email, password }) {
                 return auth.signInWithEmailAndPassword(email, password)
+            },
+
+            signInWithGoogle({ commit }) {
+                return auth.signInWithPopup(googleAuth)
             },
 
             signOut() {
