@@ -19,4 +19,7 @@ var firebaseConfig = {
 
 export const auth = firebase.auth()
 export const googleAuth = new firebase.auth.GoogleAuthProvider()
+export var appleAuth = new firebase.auth.OAuthProvider('apple.com')
+export var facebookAuth = new firebase.auth.FacebookAuthProvider()
+export var twitterAuth = new firebase.auth.TwitterAuthProvider()
 export default firebase

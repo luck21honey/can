@@ -35,7 +35,7 @@
 
                             <div>
                                 <span class="w-full inline-flex rounded-md shadow-sm">
-                                    <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition duration-150 ease-in-out" aria-label="Sign in with Facebook">
+                                    <button @click="facebookSignIn" type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition duration-150 ease-in-out" aria-label="Sign in with Facebook">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd" />
                                         </svg>
@@ -45,7 +45,7 @@
 
                             <div>
                                 <span class="w-full inline-flex rounded-md shadow-sm">
-                                    <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition duration-150 ease-in-out" aria-label="Sign in with Twitter">
+                                    <button @click="twitterSignIn" type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition duration-150 ease-in-out" aria-label="Sign in with Twitter">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
                                         </svg>
@@ -55,7 +55,7 @@
 
                             <div>
                                 <span class="w-full inline-flex rounded-md shadow-sm">
-                                    <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition duration-150 ease-in-out" aria-label="Sign in with Apple">
+                                    <button @click="appleSignIn" type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition duration-150 ease-in-out" aria-label="Sign in with Apple">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 48 48" width="24px" height="24px">
                                             <path d="M32.5,44c-1.778,0-3.001-0.577-4.08-1.086C27.38,42.424,26.481,42,25,42s-2.38,0.424-3.42,0.914	C20.501,43.423,19.278,44,17.5,44C13.174,44,6,34.071,6,23.5C6,16.49,10.832,11,17,11c2.027,0,3.259,0.581,4.346,1.093	C22.378,12.58,23.27,13,25,13s2.622-0.42,3.654-0.907C29.741,11.581,30.973,11,33,11c2.664,0,5.033,0.982,7.042,2.921	c0.338,0.326,0.504,0.793,0.447,1.26s-0.329,0.88-0.735,1.116C37.438,17.644,36,20.499,36,23.75c0,3.661,2.004,6.809,4.986,7.831	c0.391,0.134,0.709,0.423,0.879,0.799c0.171,0.375,0.18,0.805,0.023,1.188C39.461,39.515,35.424,44,32.5,44z" />
                                             <path d="M25.5,10c-0.358,0-0.708-0.128-0.984-0.368c-0.363-0.316-0.554-0.788-0.51-1.269c0.012-0.123,0.303-3.045,2.593-5.382l0,0	c2.154-2.2,4.251-2.854,4.482-2.922c0.489-0.142,1.017-0.026,1.401,0.308c0.385,0.333,0.574,0.839,0.503,1.344	c-0.034,0.241-0.389,2.436-2.232,4.899c-1.973,2.636-4.791,3.322-4.91,3.35C25.729,9.987,25.614,10,25.5,10z" />
@@ -172,14 +172,52 @@ export default {
             this.$store
                 .dispatch('signInWithGoogle')
                 .then((result) => {
-                    console.log('google auth result>>>', result)
                     this.$router.push('/home');
                 })
                 .catch(e => {
                     this.$snotify.error(e.message)
                     alert(e.message)
                 })
-        }
+        },
+
+        facebookSignIn() {
+            console.log('facebook button clicked>>')
+            this.$store
+                .dispatch('signInWithFacebook')
+                .then((result) => {
+                    this.$router.push('/home');
+                })
+                .catch(e => {
+                    this.$snotify.error(e.message)
+                    alert(e.message)
+                })
+        },
+
+        twitterSignIn() {
+            console.log('twitter button clicked>>')
+            this.$store
+                .dispatch('signInWithTwitter')
+                .then((result) => {
+                    this.$router.push('/home');
+                })
+                .catch(e => {
+                    this.$snotify.error(e.message)
+                    alert(e.message)
+                })
+        },
+
+        appleSignIn() {
+            console.log('apple button clicked>>')
+            this.$store
+                .dispatch('signInWithApple')
+                .then((result) => {
+                    this.$router.push('/home');
+                })
+                .catch(e => {
+                    this.$snotify.error(e.message)
+                    alert(e.message)
+                })
+        },
     }
 }
 </script>>
