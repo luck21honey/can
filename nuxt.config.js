@@ -55,6 +55,9 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-    }
-  }
+    },
+    extractCSS: true,
+  },
+  buildDir: './.nuxt',
+  srcDir: './',
 }
